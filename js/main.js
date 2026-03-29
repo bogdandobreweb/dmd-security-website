@@ -153,7 +153,7 @@ function handleContactForm(e) {
   submitBtn.disabled = true;
   submitBtn.textContent = '...';
 
-  fetch('contact.php', {
+  fetch('trimite.php', {
     method: 'POST',
     body: formData
   })
