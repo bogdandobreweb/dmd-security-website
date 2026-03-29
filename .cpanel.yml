@@ -2,17 +2,10 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/dmdro/public_html
-    - /bin/cp -R index.html $DEPLOYPATH/
-    - /bin/cp -R contact.php $DEPLOYPATH/
-    - /bin/cp -R .htaccess $DEPLOYPATH/
-    - /bin/cp -R robots.txt $DEPLOYPATH/
-    - /bin/cp -R sitemap.xml $DEPLOYPATH/
-    - /bin/mkdir -p $DEPLOYPATH/js
-    - /bin/cp -R js/* $DEPLOYPATH/js/
-    - /bin/mkdir -p $DEPLOYPATH/assets/images
-    - /bin/mkdir -p $DEPLOYPATH/assets/docs
-    - /bin/cp -R assets/logo.png $DEPLOYPATH/assets/
-    - /bin/cp -R assets/logo.jpg $DEPLOYPATH/assets/
-    - /bin/cp -R assets/logo.svg $DEPLOYPATH/assets/
-    - /bin/cp -R assets/images/* $DEPLOYPATH/assets/images/
-    - /bin/cp -R assets/docs/* $DEPLOYPATH/assets/docs/
+    - /bin/cp -f *.html $DEPLOYPATH/
+    - /bin/cp -f *.php $DEPLOYPATH/
+    - /bin/cp -f *.txt $DEPLOYPATH/
+    - /bin/cp -f *.xml $DEPLOYPATH/
+    - /bin/cp -f .htaccess $DEPLOYPATH/
+    - /bin/cp -Rf js $DEPLOYPATH/
+    - /bin/cp -Rf assets $DEPLOYPATH/
