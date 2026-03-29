@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" width="320" height="400">
+  <defs>
+    <!-- Gold border gradient -->
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8C547"/>
+      <stop offset="30%" style="stop-color:#D4AF37"/>
+      <stop offset="70%" style="stop-color:#C8A23C"/>
+      <stop offset="100%" style="stop-color:#B8962E"/>
+    </linearGradient>
+    <!-- Dark shield fill -->
+    <linearGradient id="shieldDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="60%" style="stop-color:#111111"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <!-- Banner gradient (dark with slight curve feel) -->
+    <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#222222"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
+    <!-- Medal gold gradient (sparkly) -->
+    <radialGradient id="medalGold" cx="45%" cy="38%" r="55%">
+      <stop offset="0%" style="stop-color:#E8D48B"/>
+      <stop offset="25%" style="stop-color:#D4BF6A"/>
+      <stop offset="50%" style="stop-color:#C8A23C"/>
+      <stop offset="75%" style="stop-color:#B08C30"/>
+      <stop offset="100%" style="stop-color:#8B6E24"/>
+    </radialGradient>
+    <!-- Text silver/chrome gradient -->
+    <linearGradient id="chromeText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="30%" style="stop-color:#E0E0E0"/>
+      <stop offset="50%" style="stop-color:#C0C0C0"/>
+      <stop offset="70%" style="stop-color:#D0D0D0"/>
+      <stop offset="100%" style="stop-color:#A0A0A0"/>
+    </linearGradient>
+    <!-- Drop shadow for shield -->
+    <filter id="shieldShadow" x="-5%" y="-3%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <!-- Subtle inner shadow for medal -->
+    <filter id="medalDepth">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset dx="1" dy="2" result="offsetBlur"/>
+      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over"/>
+    </filter>
+    <!-- Gold leaf color -->
+    <linearGradient id="leafGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8C547"/>
+      <stop offset="50%" style="stop-color:#D4AF37"/>
+      <stop offset="100%" style="stop-color:#C89B2E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== SHIELD OUTER (Gold border) ===== -->
+  <path d="M160 8 L305 55 L305 210 Q305 310 160 388 Q15 310 15 210 L15 55 Z"
+        fill="url(#goldBorder)" filter="url(#shieldShadow)"/>
+
+  <!-- ===== SHIELD INNER (Black) ===== -->
+  <path d="M160 18 L295 62 L295 208 Q295 302 160 378 Q25 302 25 208 L25 62 Z"
+        fill="url(#shieldDark)"/>
+
+  <!-- ===== TOP BANNER (curved black band) ===== -->
+  <path d="M45 55 Q160 35 275 55 L280 62 Q160 82 40 62 Z" fill="url(#bannerGrad)" opacity="0.9"/>
+  <!-- Banner bottom curved line -->
+  <path d="M42 63 Q160 83 278 63" stroke="#1a1a5e" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- ===== STARS (6-pointed, yellow) ===== -->
+  <!-- Left star -->
+  <g transform="translate(62, 54)">
+    <polygon points="0,-8 2.3,-2.5 8.5,-2.5 3.5,1.5 5.2,7.5 0,3.5 -5.2,7.5 -3.5,1.5 -8.5,-2.5 -2.3,-2.5" fill="#E8C547"/>
+  </g>
+  <!-- Right star -->
+  <g transform="translate(258, 54)">
+    <polygon points="0,-8 2.3,-2.5 8.5,-2.5 3.5,1.5 5.2,7.5 0,3.5 -5.2,7.5 -3.5,1.5 -8.5,-2.5 -2.3,-2.5" fill="#E8C547"/>
+  </g>
+
+  <!-- ===== "DMD SECURITY" TEXT ===== -->
+  <text x="160" y="64" text-anchor="middle" fill="url(#chromeText)" font-family="'Arial Black', 'Impact', 'Helvetica Neue', sans-serif" font-size="26" font-weight="900" letter-spacing="2">DMD SECURITY</text>
+  <!-- Text outline for chrome/embossed effect -->
+  <text x="160" y="64" text-anchor="middle" fill="none" stroke="#666" stroke-width="0.3" font-family="'Arial Black', 'Impact', 'Helvetica Neue', sans-serif" font-size="26" font-weight="900" letter-spacing="2">DMD SECURITY</text>
+
+  <!-- ===== LAUREL WREATH ===== -->
+  <!-- Left branch - larger, more prominent leaves like original -->
+  <g fill="url(#leafGold)">
+    <!-- Left leaves (bottom to top, curving around medal) -->
+    <ellipse cx="75" cy="280" rx="8" ry="16" transform="rotate(-25, 75, 280)"/>
+    <ellipse cx="68" cy="260" rx="8" ry="15" transform="rotate(-20, 68, 260)"/>
+    <ellipse cx="63" cy="238" rx="8" ry="15" transform="rotate(-15, 63, 238)"/>
+    <ellipse cx="60" cy="216" rx="7.5" ry="14" transform="rotate(-10, 60, 216)"/>
+    <ellipse cx="60" cy="194" rx="7" ry="13" transform="rotate(-5, 60, 194)"/>
+    <ellipse cx="63" cy="172" rx="7" ry="13" transform="rotate(0, 63, 172)"/>
+    <ellipse cx="70" cy="152" rx="6.5" ry="12" transform="rotate(8, 70, 152)"/>
+    <ellipse cx="80" cy="135" rx="6" ry="11" transform="rotate(16, 80, 135)"/>
+    <ellipse cx="93" cy="121" rx="6" ry="10" transform="rotate(25, 93, 121)"/>
+    <ellipse cx="108" cy="110" rx="5.5" ry="10" transform="rotate(35, 108, 110)"/>
+    <ellipse cx="126" cy="102" rx="5" ry="9" transform="rotate(45, 126, 102)"/>
+    <ellipse cx="143" cy="98" rx="5" ry="8" transform="rotate(55, 143, 98)"/>
+    <!-- Left stem -->
+    <path d="M148 300 Q50 240 145 95" stroke="#A67C2E" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Right branch -->
+  <g fill="url(#leafGold)">
+    <ellipse cx="245" cy="280" rx="8" ry="16" transform="rotate(25, 245, 280)"/>
+    <ellipse cx="252" cy="260" rx="8" ry="15" transform="rotate(20, 252, 260)"/>
+    <ellipse cx="257" cy="238" rx="8" ry="15" transform="rotate(15, 257, 238)"/>
+    <ellipse cx="260" cy="216" rx="7.5" ry="14" transform="rotate(10, 260, 216)"/>
+    <ellipse cx="260" cy="194" rx="7" ry="13" transform="rotate(5, 260, 194)"/>
+    <ellipse cx="257" cy="172" rx="7" ry="13" transform="rotate(0, 257, 172)"/>
+    <ellipse cx="250" cy="152" rx="6.5" ry="12" transform="rotate(-8, 250, 152)"/>
+    <ellipse cx="240" cy="135" rx="6" ry="11" transform="rotate(-16, 240, 135)"/>
+    <ellipse cx="227" cy="121" rx="6" ry="10" transform="rotate(-25, 227, 121)"/>
+    <ellipse cx="212" cy="110" rx="5.5" ry="10" transform="rotate(-35, 212, 110)"/>
+    <ellipse cx="194" cy="102" rx="5" ry="9" transform="rotate(-45, 194, 102)"/>
+    <ellipse cx="177" cy="98" rx="5" ry="8" transform="rotate(-55, 177, 98)"/>
+    <!-- Right stem -->
+    <path d="M172 300 Q270 240 175 95" stroke="#A67C2E" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- ===== CROSSED STEMS AT BOTTOM ===== -->
+  <line x1="130" y1="305" x2="180" y2="288" stroke="#C8A23C" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="190" y1="305" x2="140" y2="288" stroke="#C8A23C" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Small cross detail -->
+  <circle cx="160" cy="296" r="3" fill="#D4AF37"/>
+
+  <!-- ===== GOLD MEDAL (circular) ===== -->
+  <circle cx="160" cy="195" r="72" fill="url(#medalGold)" filter="url(#medalDepth)"/>
+  <!-- Medal inner ring -->
+  <circle cx="160" cy="195" r="72" fill="none" stroke="#A67C2E" stroke-width="2"/>
+  <circle cx="160" cy="195" r="68" fill="none" stroke="#E8D48B" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- ===== KICKBOXING FIGURES ===== -->
+  <g transform="translate(160, 195)" opacity="0.85">
+    <!-- Fighter 1 (left, blocking stance) -->
+    <!-- Head -->
+    <circle cx="-22" cy="-42" r="9" fill="#8B6E24" stroke="#7A5C12" stroke-width="1"/>
+    <!-- Body/torso -->
+    <path d="M-22 -33 L-22 -5 L-26 20" stroke="#7A5C12" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- Arms - blocking position -->
+    <path d="M-22 -24 L-10 -34 L-3 -26" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-22 -20 L-36 -28 L-40 -22" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Legs -->
+    <path d="M-22 -5 L-34 22 L-38 40" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M-22 -5 L-12 20 L-8 38" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Fighter 2 (right, high kick) -->
+    <!-- Head -->
+    <circle cx="22" cy="-38" r="9" fill="#8B6E24" stroke="#7A5C12" stroke-width="1"/>
+    <!-- Body/torso -->
+    <path d="M22 -29 L20 -2" stroke="#7A5C12" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- Arms -->
+    <path d="M21 -20 L10 -30 L3 -24" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M21 -16 L34 -24 L38 -18" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Standing leg -->
+    <path d="M20 -2 L28 22 L30 40" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Kicking leg (high roundhouse kick) -->
+    <path d="M20 -2 L5 -15 L-10 -36" stroke="#7A5C12" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ===== BOTTOM STRIPES (Red & Blue/Purple) ===== -->
+  <g opacity="0.85">
+    <rect x="120" y="310" width="10" height="38" rx="1" fill="#8B1A1A"/>
+    <rect x="132" y="310" width="10" height="42" rx="1" fill="#1a1a5e"/>
+    <rect x="144" y="310" width="10" height="44" rx="1" fill="#8B1A1A"/>
+    <rect x="156" y="310" width="10" height="44" rx="1" fill="#1a1a5e"/>
+    <rect x="168" y="310" width="10" height="42" rx="1" fill="#8B1A1A"/>
+    <rect x="180" y="310" width="10" height="38" rx="1" fill="#1a1a5e"/>
+  </g>
+
+  <!-- ===== SUBTLE GOLD TRIM LINE BELOW BANNER ===== -->
+  <path d="M40 72 Q160 90 280 72" stroke="url(#goldBorder)" stroke-width="1" fill="none" opacity="0.5"/>
+</svg>

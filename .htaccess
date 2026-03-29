@@ -1,0 +1,49 @@
+# DMD Security - URL Redirects & Configuration
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force www
+RewriteCond %{HTTP_HOST} ^dmdsecurity\.ro$ [NC]
+RewriteRule ^(.*)$ https://www.dmdsecurity.ro/$1 [L,R=301]
+
+# 301 Redirects from old pages to new sections
+RewriteRule ^despre-noi\.html$ /#about [NE,R=301,L]
+RewriteRule ^servicii\.html$ /#services [NE,R=301,L]
+RewriteRule ^tarife\.html$ /#pricing [NE,R=301,L]
+RewriteRule ^clienti\.html$ /#clients [NE,R=301,L]
+RewriteRule ^contact\.html$ /#contact [NE,R=301,L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Custom error page
+ErrorDocument 404 /index.html
