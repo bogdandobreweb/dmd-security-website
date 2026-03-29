@@ -1,5 +1,11 @@
 <?php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+
+// Log errors for debugging
+error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/contact_errors.log');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -24,7 +30,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 $to = 'office@dmdsecurity.ro';
-$subject = "Solicitare oferta - $name" . ($company ? " ($company)" : '');
+$subject = "=?UTF-8?B?" . base64_encode("Solicitare oferta - $name" . ($company ? " ($company)" : '')) . "?=";
 
 $body = "Ați primit o nouă solicitare de ofertă de pe site-ul DMD Security.\n\n";
 $body .= "Nume: $name\n";
@@ -33,16 +39,20 @@ $body .= "Telefon: $phone\n";
 $body .= "Companie: " . ($company ?: '-') . "\n\n";
 $body .= "Mesaj:\n$message\n";
 
-$headers = "From: noreply@dmdsecurity.ro\r\n";
+$headers = "From: DMD Security <office@dmdsecurity.ro>\r\n";
 $headers .= "Reply-To: $email\r\n";
-$headers .= "X-Mailer: DMDSecurity-Website\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 $sent = mail($to, $subject, $body, $headers);
 
-// Also send to secondary email
 if ($sent) {
+    // Also send to secondary email
     mail('dmdsecuritate@gmail.com', $subject, $body, $headers);
+    error_log("Email sent successfully to $to from $email");
+} else {
+    $lastError = error_get_last();
+    error_log("Email FAILED to $to from $email. Error: " . ($lastError ? $lastError['message'] : 'unknown'));
 }
 
-echo json_encode(['success' => $sent]);
+echo json_encode(['success' => $sent, 'debug' => !$sent ? 'mail() returned false - check server mail config' : null]);
